@@ -14,7 +14,10 @@ class DiceSet:
         return self._values
 
     def roll(self, n):
-        self._values = [random.randint(1, 6)] * n
+        new_values = [random.randint(1, 6)] * n
+        while self._values == new_values:
+            new_values = [random.randint(1, 6)] * n
+        self._values = new_values
 
 
 class AboutDiceProject(Koan):
